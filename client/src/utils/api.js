@@ -1,18 +1,16 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: 'https://skill-swap-campus-production.up.railway.app/api',
   headers: { 'Content-Type': 'application/json' },
 });
 
-// Attach token from storage on every request
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('ssc_token');
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
 
-// Global error handling
 api.interceptors.response.use(
   (res) => res,
   (err) => {
