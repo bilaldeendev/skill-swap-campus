@@ -1,0 +1,160 @@
+.hero {
+  padding: 90px 0 70px;
+  overflow: hidden;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  margin-top: 14px;
+  font-weight: 700;
+}
+
+.hero-sub {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  max-width: 480px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+/* Hero demo: two skill cards "locking" together via the swap mark */
+.hero-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+}
+
+.swap-card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: 22px 22px 24px;
+  width: 200px;
+  animation: swapIn 0.9s ease both;
+}
+
+.swap-card h3 {
+  font-size: 1.05rem;
+  margin: 14px 0 6px;
+  line-height: 1.25;
+}
+
+.swap-card-left {
+  transform: rotate(-4deg);
+  margin-right: -18px;
+  animation-delay: 0.05s;
+}
+.swap-card-right {
+  transform: rotate(4deg);
+  margin-left: -18px;
+  animation-delay: 0.25s;
+}
+
+.swap-connector {
+  background: var(--paper-dim);
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  border: 1px solid var(--line);
+}
+
+.swapmark-spin {
+  animation: spin 2.4s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes swapIn {
+  from { opacity: 0; transform: translateY(14px) rotate(0deg); }
+  to { opacity: 1; }
+}
+
+/* Features */
+.features {
+  padding: 50px 0 80px;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 36px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  border-top: 4px solid var(--line);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.feature-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+.feature-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+.accent-marigold { border-top-color: var(--marigold); }
+.accent-teal { border-top-color: var(--teal); }
+.accent-coral { border-top-color: var(--coral); }
+
+/* CTA */
+.cta {
+  padding: 70px 0 100px;
+}
+.cta-inner {
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--radius-lg);
+  padding: 60px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.cta-inner h2 {
+  font-size: 1.8rem;
+  max-width: 480px;
+}
+
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  .hero-demo {
+    margin-top: 30px;
+  }
+}
